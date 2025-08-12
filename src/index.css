@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio Design System - Modern Tech Aesthetic */
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 240 10% 3.9%;
+
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 263 85% 65%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom portfolio colors */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(263 85% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 10% 7%), hsl(240 4% 16%));
+    --gradient-accent: linear-gradient(135deg, hsl(263 85% 65%), hsl(300 85% 65%));
+    
+    --glow-primary: 0 0 20px hsl(217 91% 60% / 0.3);
+    --glow-accent: 0 0 20px hsl(263 85% 65% / 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Complex Modal Animations */
+  .animate-modal-enter {
+    animation: modalEnter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  
+  .animate-modal-exit {
+    animation: modalExit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-modal-content-enter {
+    animation: modalContentEnter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  
+  .animate-modal-content-exit {
+    animation: modalContentExit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-title-entrance {
+    animation: titleEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+  
+  .image-card {
+    animation: imageCardEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  
+  
+  .shadow-glow-primary {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.4), 
+                0 0 60px hsl(var(--primary) / 0.2),
+                0 0 90px hsl(var(--primary) / 0.1);
+  }
+
+  @keyframes modalEnter {
+    0% {
+      opacity: 0;
+      backdrop-filter: blur(0px);
+    }
+    100% {
+      opacity: 1;
+      backdrop-filter: blur(12px);
+    }
+  }
+  
+  @keyframes modalExit {
+    0% {
+      opacity: 1;
+      backdrop-filter: blur(12px);
+    }
+    100% {
+      opacity: 0;
+      backdrop-filter: blur(0px);
+    }
+  }
+  
+  @keyframes modalContentEnter {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) translateY(100px) rotateX(15deg);
+      filter: blur(10px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(0.95) translateY(20px) rotateX(5deg);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0) rotateX(0deg);
+      filter: blur(0px);
+    }
+  }
+  
+  @keyframes modalContentExit {
+    0% {
+      opacity: 1;
+      transform: scale(1) translateY(0) rotateX(0deg);
+      filter: blur(0px);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9) translateY(-30px) rotateX(-10deg);
+      filter: blur(5px);
+    }
+  }
+  
+  @keyframes titleEntrance {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes imageCardEntrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(30px) rotateY(15deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0) rotateY(0deg);
+    }
+  }
+  
+
+  /* Hover animation variants */
+  .image-card:hover {
+    transform: perspective(1000px) rotateY(5deg) rotateX(2deg) scale(1.02);
+  }
+  
+  .close-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  /* Close button animations */
+  .animate-close-button-enter {
+    animation: closeButtonEnter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg);
+    animation-delay: 0.4s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes closeButtonEnter {
+    0% {
+      opacity: 0;
+      transform: scale(0.5) rotate(-180deg);
+    }
+    70% {
+      opacity: 0.8;
+      transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  .ribeye-regular {
+  font-family: "Ribeye", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+}
